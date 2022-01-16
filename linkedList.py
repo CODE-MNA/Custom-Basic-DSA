@@ -1,19 +1,18 @@
 # Importing a node class which contains a pointer and value fields
 from node import Node
 
-#A Linked list class with one direction pointers
-#Containing methods such as insertings, traversing the linked list
+#Linked Lists
 
 class SinglyLinkedList():
 
-    # An field containing the first Node
+    
     headValue = None
     
     
     def __init__(self):
         self.headValue = None
        
-    # Inserting methods either at beginning, end or in middle of the list
+    # Inserting methods
     def append(self, Node):
         if self.headValue is None:
             self.headValue = Node
@@ -29,7 +28,15 @@ class SinglyLinkedList():
         else:
             Node.next = self.headValue
             self.headValue = Node
-
+    def insert(self,index,Node):
+        cursor = self.headValue
+        for i in range(index):
+            cursor = cursor.next
+            if(cursor is None):
+              raise IndexError("index out of range") 
+      
+        
+    
     # Overriding the to string function so that print method works correctly when 
     # printing the lists
  
@@ -44,3 +51,8 @@ class SinglyLinkedList():
         return output
         
         
+    def reverse(self):
+        cursor = self.headValue
+        while cursor.next is not None:
+            cursor.next.next = cursor
+            cursor = cursor.next
