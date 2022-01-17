@@ -1,12 +1,15 @@
 from typing import List
 from linkedList import SinglyLinkedList
+from stack import Stack
 from node import Node
 from algorithms.sorting import *
+from algorithms.searching import *
 import timeit
 
 # Append Code HERE    
 def main():        
-  LinkedListTest()
+  
+  StackTest()
   
     
 
@@ -29,6 +32,21 @@ def LinkedListTest():
     print(L)
     
 
-
+def StackTest():
+    VALUE_TO_SEARCH = input('Enter the value that you like to search for : ')
+    while VALUE_TO_SEARCH.isdigit() is False:
+         VALUE_TO_SEARCH = input('Please enter a number')
+    
+    VALUE_TO_SEARCH = int(VALUE_TO_SEARCH)
+        
+    
+    
+    S = Stack()
+    S.pushMultiple([523,432,11,213,12,124,512,321,562,424])
+    arr = S.data
+    k = BinarySearch(arr,VALUE_TO_SEARCH,0,len(arr)-1, int(len(arr)-1/2))
+    print(k)
+    
 if __name__ == "__main__":  
     main()
+    
