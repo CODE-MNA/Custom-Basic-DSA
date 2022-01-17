@@ -45,8 +45,3 @@ def QuickSort(array):
         
     return QuickSort(lower_array) + [pivot] +QuickSort(upper_array)
 
-testArray = [41,213,515,2,23,63,21312,5,222,14124,4124]
-print(testArray)
-
-
-print(QuickSort(testArray))

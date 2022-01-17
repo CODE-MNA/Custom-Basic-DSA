@@ -24,13 +24,10 @@ def SORTING_TEST():
     print("Quick : " + str(timeit.timeit('QuickSort([5,4,2,1,5])',setup='from algorithms.sorting import QuickSort' ,number=TEST_AMOUNT)))
 
 def LinkedListTest():
-    Ll = SinglyLinkedList()
-    Ll.prepend(Node(423))
-    Ll.append(Node(324))
-    Ll.prepend(Node(331))
+    L = SinglyLinkedList()
+    L.appendList(['ab',325,1233,123,5325,63])
+    print(L)
     
- 
-
 
 
 if __name__ == "__main__":  

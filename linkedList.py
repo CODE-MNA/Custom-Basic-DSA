@@ -1,4 +1,6 @@
 # Importing a node class which contains a pointer and value fields
+from ast import List
+from pickle import NONE
 from node import Node
 
 #Linked Lists
@@ -13,6 +15,12 @@ class SinglyLinkedList():
         self.headValue = None
        
     # Inserting methods
+    def appendList(self,list:list):
+        for i in list:
+          self.append(Node(i))  
+        
+        
+        
     def append(self, Node):
         if self.headValue is None:
             self.headValue = Node
@@ -48,11 +56,32 @@ class SinglyLinkedList():
             
             pointer = pointer.next
             output += ", "+ str(pointer) 
+        
         return output
         
         
     def reverse(self):
-        cursor = self.headValue
-        while cursor.next is not None:
-            cursor.next.next = cursor
-            cursor = cursor.next
+        First = self.headValue
+        
+        Second = self.headValue.next
+        
+        while Second.next is not None:
+            temp = Second.next
+            Second.next = First
+            First = First.next
+            Second = temp
+        self.headValue = Second
+        
+    def recurseReversed(self,cursor : Node, previousNode : Node):
+        if (cursor.next == None):
+            self.headValue = cursor
+            self.headValue.next = previousNode
+            return 
+        temp = Node(cursor.value)
+        temp.next = cursor.next
+        
+        cursor.next = previousNode
+        
+        return self.recurseReversed(temp.next,cursor)
+    
+ 
